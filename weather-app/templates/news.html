@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<body style="background-color: #FFB838;">
+    <div class="jumbotron text-center" style="background-color: #486D87;">
+        <h1>News</h1>
+        <!-- <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+        
+        <h4>Find more news here!</h4>
+        <br>
+
+        <form>
+            <input type="text" name="topic" placeholder="news search">
+            <input type="submit" value="Search">
+        </form>
+
+        <br>
+        <ul class="list-group">
+            {% for news in news %}
+                <li class="list-group-item">
+                    <b>{{news.title}}</b> <br> 
+                    {{news.description}} <br> 
+                    <a href="{{news.url}}">Read more ... </a> <br>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</body>
+{% endblock %}

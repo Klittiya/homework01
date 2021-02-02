@@ -1,0 +1,45 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<body style="background-color: #486D87;">
+    <div class="jumbotron text-center" style="background-color: #FFB838;">
+        <h1>Weather Report</h1>
+        <!-- <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+        <br>
+        
+        <h4>Current Weather</h4>
+
+        <form>
+            <input type="text" name="city" placeholder="weather search">
+            <input type="submit" value="Submit">
+        </form>
+
+        <br>
+        <p>City: <b>{{weather.city}}, {{weather.country}}</b>
+            <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png" width="40" height="40">
+        </p>
+        <p>{{weather.description}} | {{weather.temperature}}&#8451</p>
+        <p>Pressure: {{weather.pressure}} hPa</p>
+        <p>Humidity: {{weather.humidity}} %</p>
+        <p>Wind speed: {{weather.windsp}} m/s</p>
+        
+
+        <br><br>
+    </div>
+
+    <div class="jumbotron text-center" style="background-color: #FEE5A5;">
+        <h1>Covid-19 News</h1>
+        <ul class="list-group">
+            {% for news in news %}
+                <li class="list-group-item">
+                    <b>{{news.title}}</b> <br> 
+                    {{news.description}} <br> 
+                    <a href="{{news.url}}">Read more ... </a> <br>
+                    <img src="{{news.urlToImage}}" width="200" height="150">
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+{% endblock %}
